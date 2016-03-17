@@ -2,6 +2,7 @@ package eXistDB;
 
 import net.xqj.exist.ExistXQDataSource;
 
+
 import javax.xml.xquery.*;
 
 /**
@@ -21,6 +22,8 @@ public class Prueba {
     // para hacer consultas nos dirigimos a exide ->
 
     // Conexiones
+
+
     static XQDataSource xqs = new ExistXQDataSource();
     static XQConnection xconn;
     static XQPreparedExpression xqpe;
