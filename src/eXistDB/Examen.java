@@ -119,7 +119,7 @@ public class Examen {
         XQDataSource xqs = new ExistXQDataSource();
 
         // Parametro serverName apuntando a la ip de dionis
-        xqs.setProperty("serverName","172.31.101.225");
+        xqs.setProperty("serverName", IP.split(":")[0]);
         xqs.setProperty("port", "8080");    // puerto
 
         // Hacemos la conexión y ejecutamos la query
