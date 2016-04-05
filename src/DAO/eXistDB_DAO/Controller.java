@@ -11,8 +11,8 @@ import javax.xml.xquery.XQException;
 public class Controller {
 
     public static void main(String[] args) {
-        try {
 
+        try {
             // DAO
             DAO dao = new DAO ("172.31.101.225", "8080", "admin", "dionis");
 

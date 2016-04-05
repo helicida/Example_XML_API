@@ -24,7 +24,7 @@ public class DAO implements Serializable{
     private final String driver = "org.exist.xmldb.DatabaseImpl";
 
     /**
-     *
+     *Constructor vacío
      */
     public DAO(){
 
@@ -32,10 +32,10 @@ public class DAO implements Serializable{
 
     /**
      *
-     * @param ip
-     * @param puerto
-     * @param usuario
-     * @param contrasenya
+     * @param ip ip del server eXist
+     * @param puerto Puerto de la conexion
+     * @param usuario Nombre de usuario del server eXist
+     * @param contrasenya  Contrasenya del usuario del server eXist
      */
     public DAO(String ip, String puerto, String usuario, String contrasenya){
         this.ip = ip;
@@ -46,8 +46,8 @@ public class DAO implements Serializable{
     }
 
     /**
-     *
-     * @param nombreColeccion
+     * Crea una colección con un nombre determinado
+     * @param nombreColeccion nombre de la colección a crear
      * @throws XMLDBException
      * @throws ClassNotFoundException
      * @throws IllegalAccessException
@@ -75,9 +75,9 @@ public class DAO implements Serializable{
     }
 
     /**
-     *
-     * @param rutaArchivo
-     * @param nombreColeccion
+     * Anyade un recurso a una colección existente
+     * @param rutaArchivo ruta en la que se localiza el archivo que queremos anyadir
+     * @param nombreColeccion nombre de la colección a la que queremos anyadir el recurso
      * @throws XMLDBException
      */
     public void afegirRecurs (String rutaArchivo, String nombreColeccion) throws XMLDBException {
@@ -96,8 +96,8 @@ public class DAO implements Serializable{
     }
 
     /**
-     *
-     * @param xQuery
+     * Hace una consulta
+     * @param xQuery Query que queremos ejecutar
      * @return
      * @throws XQException
      */
@@ -132,48 +132,48 @@ public class DAO implements Serializable{
     // Getters
 
     /**
-     *
-     * @return
+     * Devuelve la URI
+     * @return URI
      */
     public String getURI() {
         return URI;
     }
 
     /**
-     *
-     * @return
+     * Devuelve la IP
+     * @return ip
      */
     public String getIp() {
         return ip;
     }
 
     /**
-     *
-     * @return
+     * Devuelve el puerto
+     * @return puerto
      */
     public String getPuerto() {
         return puerto;
     }
 
     /**
-     *
-     * @return
+     * Devuelve el usuario
+     * @return usuario
      */
     public String getUsuario() {
         return usuario;
     }
 
     /**
-     *
-     * @return
+     * Devuelve la contrasenya
+     * @return contrasenya
      */
     public String getContrasenya() {
         return contrasenya;
     }
 
     /**
-     *
-     * @return
+     * Devuelve el driver usado
+     * @return driver
      */
     public String getDriver() {
         return driver;
@@ -183,7 +183,7 @@ public class DAO implements Serializable{
     // Setters
 
     /**
-     *
+     * Fija la URI al valor pasado por parametro
      * @param URI
      */
     public void setURI(String URI) {
@@ -191,7 +191,7 @@ public class DAO implements Serializable{
     }
 
     /**
-     *
+     * Fija la IP al valor pasado por parametro
      * @param ip
      */
     public void setIp(String ip) {
@@ -199,7 +199,7 @@ public class DAO implements Serializable{
     }
 
     /**
-     *
+     * Fija el puerto al valor pasado por parametro
      * @param puerto
      */
     public void setPuerto(String puerto) {
@@ -207,7 +207,7 @@ public class DAO implements Serializable{
     }
 
     /**
-     *
+     * Fija el usuario al valor pasado por parametro
      * @param usuario
      */
     public void setUsuario(String usuario) {
@@ -215,7 +215,7 @@ public class DAO implements Serializable{
     }
 
     /**
-     *
+     * Fija la contrasenya al valor pasado por parametro
      * @param contrasenya
      */
     public void setContrasenya(String contrasenya) {
