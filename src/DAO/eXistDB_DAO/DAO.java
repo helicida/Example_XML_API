@@ -152,9 +152,10 @@ public class DAO implements Serializable{
         System.out.println("- Eliminando la coleccion");
 
         //crear la collecion
-        Collection parent = DatabaseManager.getCollection(URI +"/" + nombreColeccion, usuario, contrasenya);
+        Collection parent = DatabaseManager.getCollection(URI + "/" + nombreColeccion, usuario, contrasenya);
         CollectionManagementService c = (CollectionManagementService) parent.getService("CollectionManagementService", "1.0");
         c.removeCollection(nombreColeccion);
+
         escribirLog("- Se ha elimiando la coleccion : " + nombreColeccion + ".");
     }
 
@@ -273,7 +274,7 @@ public class DAO implements Serializable{
         return driver;
     }
 
-
+    
     // Setters
 
     /**

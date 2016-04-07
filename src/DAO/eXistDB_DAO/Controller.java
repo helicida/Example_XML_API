@@ -29,7 +29,7 @@ public class Controller {
             System.out.println(dao.consulta("for $city in doc('SergiPruebaDao/factbook.xml')/factbook/record/country return $city"));
 
             // Elimina un recurso
-            dao.eliminarRecurs("SergiPruebaDao" , "factbook.xml");
+            dao.eliminarRecurs("SergiPruebaDao", "factbook.xml");
 
             // Elimina la colección
             dao.eliminarColeccio("SergiPruebaDao");
