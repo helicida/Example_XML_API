@@ -1,8 +1,6 @@
 package DAO.eXistDB_DAO;
 
-
 import org.xmldb.api.base.XMLDBException;
-
 import javax.xml.xquery.XQException;
 
 /**
@@ -29,6 +27,12 @@ public class Controller {
             // Hacemos una consulta XQuery ese recurso
             System.out.println("\nConsulta Xquery \n------------------------");
             System.out.println(dao.consulta("for $city in doc('SergiPruebaDao/factbook.xml')/factbook/record/country return $city"));
+
+            // Elimina un recurso
+            dao.eliminarRecurs("SergiPruebaDao" , "factbook.xml");
+
+            // Elimina la colección
+            dao.eliminarColeccio("SergiPruebaDao");
 
         } catch (XMLDBException e) {
             e.printStackTrace();

@@ -8,8 +8,7 @@ import org.xmldb.api.base.Resource;
 import org.xmldb.api.base.XMLDBException;
 import org.xmldb.api.modules.CollectionManagementService;
 import javax.xml.xquery.*;
-import java.io.File;
-import java.io.Serializable;
+import java.io.*;
 
 /**
  * Created by 46465442z on 31/03/16.
@@ -72,6 +71,9 @@ public class DAO implements Serializable{
         Collection parent = DatabaseManager.getCollection(URI, usuario, contrasenya);
         CollectionManagementService c = (CollectionManagementService) parent.getService("CollectionManagementService", "1.0");
         c.createCollection(nombreColeccion);
+
+        escribirLog("- Se ha creado una colección");
+
     }
 
     /**
@@ -93,6 +95,67 @@ public class DAO implements Serializable{
         Resource res = col.createResource(rutaArchivo, "XMLResource");
         res.setContent(f);
         col.storeResource(res);
+        escribirLog("- Se ha anyadido un recurso");
+        col.close();
+    }
+
+    /**
+     * Elimina un recurso de una coleccion
+     * @param nombreColeccion
+     * @param nombreRecurso
+     * @throws XMLDBException
+     * @throws IllegalAccessException
+     * @throws InstantiationException
+     * @throws ClassNotFoundException
+     */
+    public void eliminarRecurs(String nombreColeccion, String nombreRecurso) throws XMLDBException, IllegalAccessException, InstantiationException, ClassNotFoundException {
+        //**************
+        // Inicializamos los drivers de la BBDD
+        //**************
+        Class cl = Class.forName(driver);
+        Database database = (Database) cl.newInstance();
+        database.setProperty("remove-database", "true");
+
+        // Crear el manegador
+        DatabaseManager.registerDatabase(database);
+
+        // Mensaje en pantalla:
+        System.out.println("- Eliminando el recurso");
+
+        Collection col = DatabaseManager.getCollection(URI + "/" + nombreColeccion, usuario, contrasenya);
+        Resource resource = col.getResource(nombreRecurso);
+        col.removeResource(resource);
+        escribirLog("- Se ha eliminado el recurso de " + nombreRecurso + "de la coleccion " + nombreColeccion);
+        col.close();
+    }
+
+    /**
+     * Elimina una coleccion
+     * @param nombreColeccion
+     * @throws XMLDBException
+     * @throws ClassNotFoundException
+     * @throws IllegalAccessException
+     * @throws InstantiationException
+     */
+    public void  eliminarColeccio(String nombreColeccion) throws XMLDBException, ClassNotFoundException, IllegalAccessException, InstantiationException {
+        //**************
+        // Inicializamos los drivers de la BBDD
+        //**************
+        Class cl = Class.forName(driver);
+        Database database = (Database) cl.newInstance();
+        database.setProperty("remove-database", "true");
+
+        // Crear el manegador
+        DatabaseManager.registerDatabase(database);
+
+        // Mensaje en pantalla:
+        System.out.println("- Eliminando la coleccion");
+
+        //crear la collecion
+        Collection parent = DatabaseManager.getCollection(URI +"/" + nombreColeccion, usuario, contrasenya);
+        CollectionManagementService c = (CollectionManagementService) parent.getService("CollectionManagementService", "1.0");
+        c.removeCollection(nombreColeccion);
+        escribirLog("- Se ha elimiando la coleccion : " + nombreColeccion + ".");
     }
 
     /**
@@ -125,8 +188,39 @@ public class DAO implements Serializable{
         // Cerramos la conexión
         conn.close();
 
+        escribirLog("- Se ha hecho una consulta");
+
         // Devolvemos la respuesta
         return resultado;
+    }
+
+    /**
+     *
+     * @param arrayAEscribir
+     * @throws IOException
+     */
+    public static void escribirLog(String arrayAEscribir){
+
+        try {
+            // Ruta del archivo en el que escribiremos
+            File log = new File("log.txt");
+
+            // Creamos un buffered writer que escribirá en el archivo info. True significa que no sobreescribirá el contenido
+            BufferedWriter bufferedWr = new BufferedWriter(new FileWriter(log, true));
+
+            // Si el archivo no existe, lo crea
+            if (!log.exists()) {
+                log.createNewFile();
+            }
+
+            // Escribimos en el archivo
+            bufferedWr.write(arrayAEscribir);
+            bufferedWr.newLine();
+
+            // Cerramos el buffered writer
+            bufferedWr.close();
+
+        } catch (IOException e) {}
     }
 
     // Getters
