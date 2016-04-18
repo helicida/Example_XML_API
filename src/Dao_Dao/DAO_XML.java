@@ -14,14 +14,12 @@ import java.util.Scanner;
 public class DAO_XML {
 
     private static Scanner teclat = new Scanner(System.in);
-    private static DAO_Diego dao1;
-
-    private JAXBContext CONTEXT;
+    private static DAO_Diego DAO_eXists;
 
     private String ip = "";
     private String puerto = "";
     private String coleccion = "";
-    private String ruta_bbdd = "";
+    private String ruta_bbdd_XML = "";
     private File archivoBBDD;
 
     // Constante que contiene el driver XML
@@ -39,14 +37,14 @@ public class DAO_XML {
      * @param ip
      * @param puerto
      * @param coleccion
-     * @param ruta_bbdd
+     * @param ruta_bbdd_XML
      */
-    public DAO_XML(String ip, String puerto , String coleccion, String ruta_bbdd){
+    public DAO_XML(String ip, String puerto , String coleccion, String ruta_bbdd_XML){
         this.ip = ip;
         this.puerto = puerto;
         this.coleccion = coleccion;
-        this.ruta_bbdd = ruta_bbdd;
-        this.archivoBBDD = new File(ruta_bbdd);
+        this.ruta_bbdd_XML = ruta_bbdd_XML;
+        this.archivoBBDD = new File(ruta_bbdd_XML);
 
         if(!archivoBBDD.exists()){
             System.out.println("No se ha encontrado la BBDD indicada");
@@ -63,7 +61,7 @@ public class DAO_XML {
      * @throws XQException
      */
     void subirRecurso() throws XMLDBException, ClassNotFoundException, InstantiationException, IllegalAccessException, XQException {
-        dao1.addResource(ruta_bbdd, coleccion);
+        DAO_eXists.addResource(ruta_bbdd_XML, coleccion);
     }
 
     /**
@@ -118,18 +116,18 @@ public class DAO_XML {
      * Anyade una factura a nuestra BBDD XML
      * @throws JAXBException
      */
-    void añadirFactura() throws JAXBException {
+    void anyadirFactura() throws JAXBException {
 
         System.out.println("Introduce DNI del Cliente");
-        String dni = teclat.nextLine();
+            String dni = teclat.nextLine();
         System.out.println("Introduce la id del Producto");
-        String id = teclat.nextLine();
+            String id = teclat.nextLine();
         System.out.println("Introduce el valor del producto");
-        String precio_articulo = teclat.nextLine();
+            String precio_articulo = teclat.nextLine();
         System.out.println("Introduce el total de la factura");
-        String precio_total = teclat.nextLine();
+            String precio_total = teclat.nextLine();
         System.out.println("Introduce el procentaje de impuestos");
-        String iva = teclat.nextLine();
+            String iva = teclat.nextLine();
 
         /*
         Factura newBill = new Factura();
