@@ -20,6 +20,8 @@ public class DAO implements Serializable{
     private String puerto = "";
     private String usuario = "";
     private String contrasenya = "";
+
+    // Constante que contiene el driver XML
     private final String driver = "org.exist.xmldb.DatabaseImpl";
 
     /**

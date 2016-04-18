@@ -48,27 +48,27 @@
     <facturas>
         <factura>
             <dni_cliente>48089748z</dni_cliente>
-            <id_productoo>0</id_productoo>
-            <precio_individual>3€</precio_individual>
+            <id_producto>1</id_producto>
+            <precio_articulo>3€</precio_articulo>
             <precio_total>30€</precio_total>
             <iva>21%</iva>
         </factura>
         <factura>
             <dni_cliente>61241232d</dni_cliente>
-            <id_productoo>1</id_productoo>
-            <precio_individual>10€</precio_individual>
+            <id_producto>2</id_producto>
+            <precio_articulo>10€</precio_articulo>
             <precio_total>300€</precio_total>
             <iva>10%</iva>
         </factura>
         <factura>
             <dni_cliente>5313212e</dni_cliente>
-            <id_productoo>2</id_productoo>
-            <precio_individual>1</precio_individual>
-            <precio_total>111</precio_total>
+            <id_producto>2</id_producto>
+            <precio_articulo>1€</precio_articulo>
+            <precio_total>111€</precio_total>
             <iva>11%</iva>
         </factura>
     </facturas>
-    <catalogo>
+    <inventario>
         <producto>
             <id>1</id>
             <nombre>Adaptador VGA</nombre>
@@ -93,5 +93,5 @@
             <precio>1100€</precio>
             <stock>5.000</stock>
         </producto>
-    </catalogo>
+    </inventario>
 </tienda>
