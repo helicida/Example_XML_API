@@ -1,6 +1,11 @@
 package Dao_Dao;
 
+import Dao_Dao.generated.TiendaType;
+
+import javax.xml.bind.JAXBContext;
 import javax.xml.bind.JAXBException;
+import javax.xml.bind.Unmarshaller;
+import java.io.File;
 import java.util.Scanner;
 
 /**
@@ -10,9 +15,16 @@ public class Controller {
 
     public static void main(String[] args) throws JAXBException {
 
+        // JAXB Controler
+        JAXBContext JaxbContext = JAXBContext.newInstance(TiendaType.class);
+        Unmarshaller ums = JaxbContext.createUnmarshaller();
+        TiendaType bbddTienda = (TiendaType) ums.unmarshal(new File("/home/46465442z/IdeaProjects/Example_XML_API/src/Dao_Dao/bbdd.xml"));
+
+        System.out.println(bbddTienda.getClientes().getCliente().get(0).getDni());
+
         // DAO's
-        DAO_Diego DAO_eXists  = new DAO_Diego("172.31.101.225", "8080", "admin", "dionis");
-        DAO_XML DAO_XML = new DAO_XML("172.31.101.225", "8080", "coleccionAModificar", "/Dao_Dao/bbdd.xml");
+         DAO_Diego DAO_eXists  = new DAO_Diego("172.31.101.225", "8080", "admin", "dionis");
+         DAO_XML DAO_XML = new DAO_XML("172.31.101.225", "8080", "coleccionAModificar", "/Dao_Dao/bbdd.xml");
 
         // Menú
         Scanner teclat = new Scanner(System.in);
