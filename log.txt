@@ -1,0 +1,37 @@
+- Se ha creado una colección
+- Se ha anyadido un recurso
+- Se ha hecho una consulta
+- Se ha hecho una consulta
+- Se ha creado una colección
+- Se ha anyadido un recurso
+- Se ha hecho una consulta
+- Se ha hecho una consulta
+- Se ha creado una colección
+- Se ha anyadido un recurso
+- Se ha hecho una consulta
+- Se ha hecho una consulta
+- Se ha eliminado el recurso de factbook.xmlde la coleccion SergiPruebaDao
+- Se ha creado una colección
+- Se ha anyadido un recurso
+- Se ha hecho una consulta
+- Se ha hecho una consulta
+- Se ha eliminado el recurso de factbook.xmlde la coleccion SergiPruebaDao
+- Se ha creado una colección
+- Se ha anyadido un recurso
+- Se ha hecho una consulta
+- Se ha hecho una consulta
+- Se ha eliminado el recurso de factbook.xmlde la coleccion SergiPruebaDao
+- Se ha elimiando la coleccion : SergiPruebaDao.
+- Se ha creado una colección
+- Se ha anyadido un recurso
+- Se ha hecho una consulta
+- Se ha hecho una consulta
+- Se ha eliminado el recurso de factbook.xmlde la coleccion SergiPruebaDao
+- Se ha elimiando la coleccion : SergiPruebaDao.
+- Se ha creado una colección
+- Se ha anyadido un recurso
+- Se ha eliminado el recurso de factbook.xmlde la coleccion SergiPruebaDao
+- Se ha elimiando la coleccion : SergiPruebaDao.
+- Se ha creado una colección
+- Se ha anyadido un recurso
+- Se ha elimiando la coleccion : SergiPruebaDao.

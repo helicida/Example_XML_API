@@ -12,21 +12,20 @@
           </xs:restriction>
         </xs:simpleType>
       </xs:element>
-      <xs:element name="id_productoo">
+      <xs:element name="id_producto">
         <xs:simpleType>
           <xs:restriction base="xs:string">
-            <xs:enumeration value="0"/>
             <xs:enumeration value="1"/>
             <xs:enumeration value="2"/>
           </xs:restriction>
         </xs:simpleType>
       </xs:element>
-      <xs:element name="precio_individual">
+      <xs:element name="precio_articulo">
         <xs:simpleType>
           <xs:restriction base="xs:string">
             <xs:enumeration value="3€"/>
             <xs:enumeration value="10€"/>
-            <xs:enumeration value="1"/>
+            <xs:enumeration value="1€"/>
           </xs:restriction>
         </xs:simpleType>
       </xs:element>
@@ -35,7 +34,7 @@
           <xs:restriction base="xs:string">
             <xs:enumeration value="30€"/>
             <xs:enumeration value="300€"/>
-            <xs:enumeration value="111"/>
+            <xs:enumeration value="111€"/>
           </xs:restriction>
         </xs:simpleType>
       </xs:element>
@@ -48,6 +47,11 @@
           </xs:restriction>
         </xs:simpleType>
       </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="inventarioType">
+    <xs:sequence>
+      <xs:element type="productoType" name="producto" maxOccurs="unbounded" minOccurs="0"/>
     </xs:sequence>
   </xs:complexType>
   <xs:complexType name="clientesType">
@@ -65,7 +69,7 @@
       <xs:element type="clientesType" name="clientes"/>
       <xs:element type="empleadosType" name="empleados"/>
       <xs:element type="facturasType" name="facturas"/>
-      <xs:element type="catalogoType" name="catalogo"/>
+      <xs:element type="inventarioType" name="inventario"/>
     </xs:sequence>
   </xs:complexType>
   <xs:complexType name="productoType">
@@ -158,11 +162,6 @@
           </xs:restriction>
         </xs:simpleType>
       </xs:element>
-    </xs:sequence>
-  </xs:complexType>
-  <xs:complexType name="catalogoType">
-    <xs:sequence>
-      <xs:element type="productoType" name="producto" maxOccurs="unbounded" minOccurs="0"/>
     </xs:sequence>
   </xs:complexType>
   <xs:complexType name="facturasType">
