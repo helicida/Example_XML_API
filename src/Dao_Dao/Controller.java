@@ -1,6 +1,7 @@
 package Dao_Dao;
 
 import Dao_Dao.generated.TiendaType;
+import net.xqj.exist.bin.D;
 
 import javax.xml.bind.JAXBContext;
 import javax.xml.bind.JAXBException;
@@ -73,13 +74,13 @@ public class Controller {
                 break;
 
                 case 5:
-                    //
-
+                    // Permite borrar un empleado
+                    DAO_XML.borrarEmpleado();
                 break;
 
                 case 6:
-                    //
-
+                    // Permite borrar un cliente
+                    DAO_XML.borrarCliente();
                 break;
 
                 case 7:

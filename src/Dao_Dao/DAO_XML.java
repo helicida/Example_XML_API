@@ -215,6 +215,9 @@ public class DAO_XML {
 
     // Consultas
 
+    /**
+     * Muestra a todos los empleados con el nombre introducido
+     */
     void empleadosNombre() {
 
         System.out.println("Introduce el nombre del empleado que quieres buscar");
@@ -235,6 +238,9 @@ public class DAO_XML {
         }
     }
 
+    /**
+     * Muestra a los empleados con el apellido indicado
+     */
     void empleadosApellidos(){
 
         System.out.println("Introduce el apellido del empleado que quieres bucar");
@@ -255,6 +261,9 @@ public class DAO_XML {
         }
     }
 
+    /**
+     * Muestra a todoss los empleados con un sueldo en específico
+     */
     void empleadosSalario(){
 
         System.out.println("Introduce el sueldo del empleado que quieres buscar");
@@ -275,6 +284,9 @@ public class DAO_XML {
         }
     }
 
+    /**
+     * Muestra todos los empleados con una antiguedad concreta
+     */
     void empleadosAntiguedad(){
 
         System.out.println("Introduce la antiguedad del empleado que quieres buscar");
@@ -295,6 +307,9 @@ public class DAO_XML {
         }
     }
 
+    /**
+     * Muestra todas las facturas de un cliente en especifico
+     */
     void facturasClientes(){
 
         System.out.println("Introduce el DNI del cliente");
@@ -311,6 +326,44 @@ public class DAO_XML {
                 System.out.println(factura.getIdProducto() + "         -   " +
                 factura.getIva() + "      -     " +
                 factura.getPrecioTotal());
+            }
+        }
+    }
+
+    // Borrar
+
+    /**
+     * Borra un cliente de la BBDD XML
+     */
+    void borrarCliente() {
+
+        System.out.println("Introduce el DNI del cliente a Borrar");
+            String dni = teclat.nextLine();
+
+        for (int iterador = 0; iterador < raizBBDD.getEmpleados().getEmpleado().size(); iterador++)  {
+            if (raizBBDD.getClientes().getCliente().get(iterador).getDni().equalsIgnoreCase(dni)) {
+
+                raizBBDD.getClientes().getCliente().remove(iterador);
+
+                System.out.println("- Se ha borrado al cliente correctamente");
+            }
+        }
+    }
+
+    /**
+     * Borra un empleado de la BBDD XML
+     */
+    void borrarEmpleado() {
+
+        System.out.println("Introduce el DNI del empleado a Borrar");
+            String dni = teclat.nextLine();
+
+        for (int iterador = 0; iterador < raizBBDD.getEmpleados().getEmpleado().size(); iterador++)  {
+            if (raizBBDD.getEmpleados().getEmpleado().get(iterador).getId().equalsIgnoreCase(dni)) {
+
+                raizBBDD.getEmpleados().getEmpleado().remove(iterador);
+
+                System.out.println("- Se ha borrado al empleado correctamente");
             }
         }
     }
