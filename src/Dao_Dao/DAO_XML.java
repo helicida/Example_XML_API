@@ -5,6 +5,7 @@ import org.xmldb.api.base.XMLDBException;
 
 import javax.xml.bind.JAXBContext;
 import javax.xml.bind.JAXBException;
+import javax.xml.bind.Marshaller;
 import javax.xml.bind.Unmarshaller;
 import javax.xml.xquery.XQException;
 import java.io.File;
@@ -91,11 +92,20 @@ public class DAO_XML {
         System.out.println("Introduce el apellido del cliente");
             String apellido = teclat.nextLine();
 
-
+        // Objeto que anyadiremos
         ClienteType cliente = new ClienteType();
         cliente.setDni(dni);
         cliente.setNombre(nombre);
         cliente.setApellido(apellido);
+
+        System.out.println(" - Añadiendo cliente");
+
+        raizBBDD.getClientes().getCliente().add(cliente);
+        Marshaller ms = JaxbContext.createMarshaller();
+        ms.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, true);
+        ms.marshal(raizBBDD, archivoBBDD);
+
+        System.out.println("- Se ha añadido el cliente correctamente");
 
     }
 
@@ -116,13 +126,22 @@ public class DAO_XML {
         System.out.println("Introduce la antiguedad del trabajador");
             String antiguedad = teclat.nextLine();
 
-
+        // Objeto que anyadiremos
         EmpleadoType empleado = new EmpleadoType();
         empleado.setId(id);
         empleado.setNombre(nombre);
         empleado.setApellido(apellido);
         empleado.setSueldo(sueldo);
         empleado.setAntiguedad(antiguedad);
+
+        System.out.println(" - Añadiendo empleado");
+
+        raizBBDD.getEmpleados().getEmpleado().add(empleado);
+        Marshaller ms = JaxbContext.createMarshaller();
+        ms.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, true);
+        ms.marshal(raizBBDD, archivoBBDD);
+
+        System.out.println("- Se ha añadido el empleado correctamente");
 
     }
 
@@ -143,13 +162,22 @@ public class DAO_XML {
         System.out.println("Introduce el procentaje de impuestos");
             String iva = teclat.nextLine();
 
-        /*
-        Factura newBill = new Factura();
-        newBill.setDNI(dni);
-        newBill.setIDProducto(id);
-        newBill.setPrecioArticulo(precio_articulo);
-        newBill.setIva(iva);
-        newBill.setPrecioTotal(precio_total);*/
+        // Objeto que anyadiremos
+        FacturaType factura = new FacturaType();
+        factura.setDniCliente(dni);
+        factura.setIdProducto(id);
+        factura.setPrecioArticulo(precio_articulo);
+        factura.setIva(iva);
+        factura.setPrecioTotal(precio_total);
+
+        System.out.println(" - Añadiendo factura");
+
+        raizBBDD.getFacturas().getFactura().add(factura);
+        Marshaller ms = JaxbContext.createMarshaller();
+        ms.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, true);
+        ms.marshal(raizBBDD, archivoBBDD);
+
+        System.out.println("- Se ha añadido la factura correctamente");
     }
 
     /**
@@ -163,16 +191,25 @@ public class DAO_XML {
         System.out.println("Introduce el nombre del producto");
             String nombre = teclat.nextLine();
         System.out.println("Introduce el precio del procuto");
-            String price = teclat.nextLine();
+            String precio = teclat.nextLine();
         System.out.println("¿Cuantos productos hay en stock?");
             String stock = teclat.nextLine();
 
-        /*
-        Producto producto = new Producto();
-        producto.setID(id);
+        // Objeto que anyadiremos
+        ProductoType producto = new ProductoType();
+        producto.setId(id);
         producto.setNombre(nombre);
         producto.setPrecio(precio);
-        producto.setStock(stock);*/
+        producto.setStock(stock);
+
+        System.out.println(" - Añadiendo producto");
+
+        raizBBDD.getInventario().getProducto().add(producto);
+        Marshaller ms = JaxbContext.createMarshaller();
+        ms.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, true);
+        ms.marshal(raizBBDD, archivoBBDD);
+
+        System.out.println("- Se ha añadido el producto correctamente");
 
     }
 
