@@ -27,21 +27,21 @@
             <id>46465442z</id>
             <nombre>Sergi</nombre>
             <apellido>Barjola</apellido>
-            <sueldo>999999999€</sueldo>
-            <antiguedad>2</antiguedad>
+            <sueldo>999999999</sueldo>
+            <antiguedad>15</antiguedad>
         </empleado>
         <empleado>
             <id>142113d</id>
             <nombre>Marc</nombre>
             <apellido>Cano</apellido>
-            <sueldo>8.600€</sueldo>
+            <sueldo>8600</sueldo>
             <antiguedad>15</antiguedad>
         </empleado>
         <empleado>
             <id>3414541m</id>
             <nombre>Moises</nombre>
             <apellido>Villaverde</apellido>
-            <sueldo>7.777€</sueldo>
+            <sueldo>7777</sueldo>
             <antiguedad>1</antiguedad>
         </empleado>
     </empleados>
